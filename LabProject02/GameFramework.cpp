@@ -265,7 +265,7 @@ void CGameFramework::FrameAdvance()
 
 	if (m_pPlayer)
 	{
-		m_pPlayer->Render(m_hDCFrameBuffer, pCamera);
+		m_pPlayer->Render(m_hDCFrameBuffer);
 	}
 
 	PresentFrameBuffer();

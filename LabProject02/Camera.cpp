@@ -169,16 +169,8 @@ void CCamera::Rotate(float fPitch, float fYaw, float fRoll)
 
 void CCamera::Update(XMFLOAT3& xmf3NewPosition, XMFLOAT3& xmf3LookAt, XMFLOAT3& xmf3Up, float fTimeElapsed)
 {
-	//XMMATRIX xmmtx4Rotate;
-	//xmmtx4Rotate.r[0] = XMVectorSet(pPlayer->Getxmf3Right().x, pPlayer->Getxmf3Right().y, pPlayer->Getxmf3Right().z, 0.0f);	//Right
-	//xmmtx4Rotate.r[1] = XMVectorSet(pPlayer->Getxmf3Up().x, pPlayer->Getxmf3Up().y, pPlayer->Getxmf3Up().z, 0.0f);			//Up
-	//xmmtx4Rotate.r[2] = XMVectorSet(pPlayer->Getxmf3Look().x, pPlayer->Getxmf3Look().y, pPlayer->Getxmf3Look().z, 0.0f);	//Look
-	//xmmtx4Rotate.r[3] = XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f);
-
 	XMVECTOR xmvPosition = XMLoadFloat3(&m_xmf3Position);
 	XMVECTOR xmvNewPosition = XMLoadFloat3(&xmf3NewPosition);
-	//XMVECTOR xmvOffset = XMVector3TransformCoord(XMLoadFloat3(pPlayer->Getpxmf3CameraOffset()), xmmtx4Rotate);	//카메라 오프셋?과 플레이어 행렬 곱
-	//XMVECTOR xmvNewPosition = XMVectorAdd(XMLoadFloat3(pPlayer->Getpxmf3Position()), xmvOffset);	//새 위치 플레이어 위치에서 오프셋만큼 더한다.
 	XMVECTOR xmvDirection = XMVectorSubtract(xmvNewPosition, xmvPosition); //카메라 방향
 
 	float fLength = XMVectorGetX(XMVector3Length(xmvDirection));	//거리 반환

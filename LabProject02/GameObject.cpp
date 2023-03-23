@@ -187,7 +187,7 @@ void CGameObject::Animate(float fElapsedTime)
 	}
 }
 
-void CGameObject::Render(HDC hDCFrameBuffer, CCamera* pCamera)
+void CGameObject::Render(HDC hDCFrameBuffer)
 {
 	if (m_pMesh)
 	{

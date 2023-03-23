@@ -36,7 +36,7 @@ public:
 	virtual void OnUpdateTransform();
 
 	virtual void Animate(float fElapsedTime);
-	virtual void Render(HDC hDCFrameBuffer, CCamera* pCamera);
+	virtual void Render(HDC hDCFrameBuffer);
 
 protected:
 	XMFLOAT4X4 m_xmf4x4World{ Matrix4x4::Identity() };

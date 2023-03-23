@@ -92,7 +92,7 @@ void CScene::Render(HDC hDCFrameBuffer, CCamera* pCamera)
 
 	for (int i = 0; i < m_nObjects; i++)
 	{
-		m_ppObjects[i]->Render(hDCFrameBuffer, pCamera);
+		m_ppObjects[i]->Render(hDCFrameBuffer);
 	}
 }
 
