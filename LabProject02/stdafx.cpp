@@ -10,5 +10,4 @@
 
 // 바꿔볼꺼 
 // 씬 이중 포인터 vector로 바꿔보기
-// GameObject -> Render에 왜 Camera를 받지?
 // void CPlayer::Move(DWORD dwDirection, float fDistance) 에서 fDistance?

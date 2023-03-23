@@ -19,10 +19,14 @@
 #include <Mmsystem.h>
 #pragma comment(lib, "winmm.lib")
 
+// DirectMath 헤더
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
 #include <DirectXColors.h>
 #include <DirectXCollision.h>
+
+// STL 헤더
+#include <vector>
 
 using namespace DirectX;
 using namespace DirectX::PackedVector;

@@ -22,7 +22,7 @@ public:
 private:
 	int	m_nObjects{ 0 };
 
-	CGameObject** m_ppObjects{ nullptr };
+	std::vector<CGameObject*> m_vpObjects{};
 
 	CPlayer* m_pPlayer{ nullptr };
 };
