@@ -14,6 +14,7 @@ void CScene::BuildObjects()
 	CCubeMesh* pCubeMesh = new CCubeMesh(4.0f, 4.0f, 4.0f);
 
 	m_nObjects = 5;
+	
 	m_vpObjects.resize(m_nObjects, nullptr);
 	//m_vpObjects = new CGameObject * [m_nObjects];
 

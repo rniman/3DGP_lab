@@ -41,10 +41,18 @@ constexpr unsigned int FRAMEBUFFER_HEIGHT{ 480 };
 #define DIR_UP					0x10
 #define DIR_DOWN				0x20
 
-#define EPSILON					1.0e-6f
+constexpr float EPSILON{ 1.0e-6f };
 
-inline bool IsZero(float fValue) { return((fabsf(fValue) < EPSILON)); }
-inline bool IsEqual(float fA, float fB) { return(::IsZero(fA - fB)); }
+
+inline bool IsZero(float fValue)
+{
+	return((fabsf(fValue) < EPSILON)); 
+}
+
+inline bool IsEqual(float fA, float fB) 
+{
+	return(::IsZero(fA - fB)); 
+}
 
 namespace Vector3
 {

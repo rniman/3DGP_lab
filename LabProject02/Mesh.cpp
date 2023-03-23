@@ -64,7 +64,7 @@ CMesh::CMesh() {}
 
 CMesh::CMesh(int nPolygons)
 	: m_nPolygons{ nPolygons }
-	, m_vpPolygons{ nPolygons, nullptr}
+	, m_vpPolygons{ nPolygons, nullptr }
 {}
 
 CMesh::~CMesh()
