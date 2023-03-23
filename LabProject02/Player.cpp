@@ -157,9 +157,21 @@ void CPlayer::Update(float fTimeElapsed)
 	//이동
 	Move(m_xmf3Velocity, false);
 
-	m_pCamera->Update(this, m_xmf3Position, fTimeElapsed);
-	m_pCamera->GenerateViewMatrix();
+	XMMATRIX xmmtx4Rotate;
+	xmmtx4Rotate.r[0] = XMVectorSet(m_xmf3Right.x, m_xmf3Right.y, m_xmf3Right.z, 0.0f);	//Right
+	xmmtx4Rotate.r[1] = XMVectorSet(m_xmf3Up.x, m_xmf3Up.y, m_xmf3Up.z, 0.0f);			//Up
+	xmmtx4Rotate.r[2] = XMVectorSet(m_xmf3Look.x, m_xmf3Look.y, m_xmf3Look.z, 0.0f);	//Look
+	xmmtx4Rotate.r[3] = XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f);
 
+	XMVECTOR xmvOffset = XMVector3TransformCoord(XMLoadFloat3(&m_xmf3CameraOffset), xmmtx4Rotate);
+	XMVECTOR xmvNewPosition = XMVectorAdd(XMLoadFloat3(&m_xmf3Position), xmvOffset);
+	XMFLOAT3 xmf3NewPosition;
+	XMStoreFloat3(&xmf3NewPosition, xmvNewPosition);
+
+	m_pCamera->Update(xmf3NewPosition, m_xmf3Position, m_xmf3Up, fTimeElapsed);
+	m_pCamera->GenerateViewMatrix();
+		
+	
 	XMVECTOR xmvVelocity = XMLoadFloat3(&m_xmf3Velocity);	//속력 방향
 	XMVECTOR xmvDeceleration = XMVector3Normalize(XMVectorScale(xmvVelocity, -1.0f));	//속력 반대
 	float fLength = XMVectorGetX(XMVector3Length(xmvVelocity));	//벡터의 크기

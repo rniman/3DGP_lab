@@ -25,9 +25,9 @@ private:
 
 };
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-// CPlayer
-class CPlayer;
+/// <CViewport>
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <CCamera>
 
 // 카메라 클래스
 class CCamera
@@ -58,7 +58,7 @@ public:
 	void Move(XMFLOAT3& xmf3Shift);
 	void Move(float x, float y, float z);
 	void Rotate(float fPitch = 0.0f, float fYaw = 0.0f, float fRoll = 0.0f);
-	void Update(CPlayer* pPlayer, XMFLOAT3& xmf3LookAt, float fTimeElapsed = 0.016f);
+	void Update(XMFLOAT3& xmf3NewPosition, XMFLOAT3& xmf3LookAt, XMFLOAT3& xmf3Up, float fTimeElapsed = 0.016f);
 
 private:
 
