@@ -64,21 +64,20 @@ CMesh::CMesh() {}
 
 CMesh::CMesh(int nPolygons)
 	: m_nPolygons{ nPolygons }
-	, m_ppPolygons{ new CPolygon * [nPolygons] }
+	, m_vpPolygons{ nPolygons, nullptr}
 {}
 
 CMesh::~CMesh()
 {
-	if (m_ppPolygons)
+	if (!m_vpPolygons.empty())
 	{
 		for (int i = 0; i < m_nPolygons; i++)
 		{
-			if (m_ppPolygons[i]) 
+			if (m_vpPolygons[i]) 
 			{
-				delete m_ppPolygons[i];
+				delete m_vpPolygons[i];
 			}
 		}
-		delete[] m_ppPolygons;
 	}
 }
 
@@ -86,7 +85,7 @@ void CMesh::SetPolygon(int nIndex, CPolygon *pPolygon)
 {
 	if ((0 <= nIndex) && (nIndex < m_nPolygons))
 	{
-		m_ppPolygons[nIndex] = pPolygon;
+		m_vpPolygons[nIndex] = pPolygon;
 	}
 }
 
@@ -121,8 +120,8 @@ void CMesh::Render(HDC hDCFrameBuffer)
 	for (int j = 0; j < m_nPolygons; j++)
 	{
 		// 버텍스 수 가져오기
-		int nVertices = m_ppPolygons[j]->GetnVertices();
-		CVertex* pVertices = m_ppPolygons[j]->GetpVertices();
+		int nVertices = m_vpPolygons[j]->GetnVertices();
+		CVertex* pVertices = m_vpPolygons[j]->GetpVertices();
 
 		// 3가지 변환을 적용시킨 벡터 저장
 		f3PreviousProject = f3InitialProject = CGraphicsPipeline::Project(pVertices[0].Getxmf3Position());

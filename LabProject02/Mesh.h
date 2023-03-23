@@ -54,7 +54,8 @@ public:
 
 protected:
 	int	m_nPolygons{ 0 };
-	CPolygon** m_ppPolygons{ nullptr };
+
+	std::vector<CPolygon*> m_vpPolygons{};
 
 private:
 	int	m_nReferences{ 1 };
