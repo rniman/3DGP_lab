@@ -191,6 +191,7 @@ void CGameObject::Render(HDC hDCFrameBuffer)
 {
 	if (m_pMesh)
 	{
+		//오브젝트의 월드변환을 가져온다.
 		CGraphicsPipeline::SetWorldTransform(&m_xmf4x4World);
 
 		HPEN hPen = ::CreatePen(PS_SOLID, 0, m_dwColor);

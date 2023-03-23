@@ -87,7 +87,9 @@ void CScene::Animate(float fElapsedTime)
 
 void CScene::Render(HDC hDCFrameBuffer, CCamera* pCamera)
 {
+	//카메라의 뷰포트를 가져온다.
 	CGraphicsPipeline::SetViewport(pCamera->GetpViewport());
+	//카메라의 카메라 * 투영 행렬을 가져온다.
 	CGraphicsPipeline::SetViewPerspectiveProjectTransform(pCamera->GetpViewPerspectiveProject());
 
 	for (int i = 0; i < m_nObjects; i++)

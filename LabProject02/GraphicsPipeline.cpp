@@ -35,6 +35,7 @@ void CGraphicsPipeline::SetViewport(CViewport* pViewport)
 
 XMFLOAT3 CGraphicsPipeline::Project(XMFLOAT3& xmf3Model)
 {
+	//CScene::Render과 CGameObject::Render에서 가져온 변환 행렬들을 곱해 최종 변환 행렬을 만들어 낸다.
 	XMMATRIX xmmtxModelToProject = XMMatrixMultiply(XMLoadFloat4x4(m_pxmf4x4World), XMLoadFloat4x4(m_pxmf4x4ViewProject));
 	XMFLOAT3 xmf3Project;
 	XMStoreFloat3(&xmf3Project, XMVector3TransformCoord(XMLoadFloat3(&xmf3Model), xmmtxModelToProject));
