@@ -22,7 +22,7 @@ public:
 
 	void SetMovingDirection(XMFLOAT3& xmf3MovingDirection);
 	void SetMovingSpeed(float fSpeed);
-	void SetMovingRange(float fRange);
+	//void SetMovingRange(float fRange);
 
 	//회전축 설정
 	void SetRotationAxis(XMFLOAT3& xmf3RotationAxis);
@@ -39,6 +39,7 @@ public:
 	virtual void Render(HDC hDCFrameBuffer);
 
 protected:
+	//월드변환행렬(위치, 회전 정보가 담긴다)
 	XMFLOAT4X4 m_xmf4x4World{ Matrix4x4::Identity() };
 
 private:
@@ -47,14 +48,12 @@ private:
 	//매쉬
 	CMesh* m_pMesh{ nullptr };
 
-	//월드변환행렬(위치, 회전 정보가 담긴다)
-
 	DWORD m_dwColor{ RGB(255, 0, 0) };
 
 	//이동 방향과 속도와 Range?
 	XMFLOAT3 m_xmf3MovingDirection{ XMFLOAT3(0.0f, 0.0f, 1.0f) };
 	float m_fMovingSpeed{ 0.0f };
-	float m_fMovingRange{ 0.0f };
+	//float m_fMovingRange{ 0.0f };
 
 	//회전축과 속도
 	XMFLOAT3 m_xmf3RotationAxis{ XMFLOAT3(0.0f, 1.0f, 0.0f) };

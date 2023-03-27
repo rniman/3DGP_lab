@@ -53,10 +53,10 @@ void CGameObject::SetMovingSpeed(float fSpeed)
 	m_fMovingSpeed = fSpeed;
 }
 
-void CGameObject::SetMovingRange(float fRange)
-{
-	m_fMovingRange = fRange;
-}
+//void CGameObject::SetMovingRange(float fRange)
+//{
+//	m_fMovingRange = fRange;
+//}
 
 void CGameObject::SetRotationAxis(XMFLOAT3& xmf3RotationAxis)
 {
