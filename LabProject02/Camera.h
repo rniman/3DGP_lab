@@ -67,7 +67,7 @@ private:
 	XMFLOAT3 m_xmf3Look{ XMFLOAT3(0.0f, 0.0f, 1.0f) };		//카메라 룩방향 벡터
 
 	float m_fFOVAngle{ 90.0f };				//FOV
-	float m_fProjectRectDistance{ 1.0f };	//카메라에서 투영평면까지의 거리
+	//float m_fProjectRectDistance{ 1.0f };	//카메라에서 투영평면까지의 거리
 	float m_fAspectRatio{ float(FRAMEBUFFER_WIDTH) / float(FRAMEBUFFER_HEIGHT) };	//종횡비
 
 	XMFLOAT4X4 m_xmf4x4View{ Matrix4x4::Identity() };						//카메라 행렬

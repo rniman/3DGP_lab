@@ -121,7 +121,7 @@ void CCamera::SetViewport(int nLeft, int nTop, int nWidth, int nHeight)
 void CCamera::SetFOVAngle(float fFOVAngle)
 {
 	m_fFOVAngle = fFOVAngle;
-	m_fProjectRectDistance = float(1.0f / tan(XMConvertToRadians(fFOVAngle * 0.5f)));	// d = 1 / tan(세타)
+	//m_fProjectRectDistance = float(1.0f / tan(XMConvertToRadians(fFOVAngle * 0.5f)));	// d = 1 / tan(세타)
 }
 
 void CCamera::GeneratePerspectiveProjectionMatrix(float fNearPlaneDistance, float fFarPlaneDistance)
