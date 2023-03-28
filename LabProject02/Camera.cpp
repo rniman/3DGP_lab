@@ -124,12 +124,10 @@ void CCamera::SetFOVAngle(float fFOVAngle)
 	m_fProjectRectDistance = float(1.0f / tan(XMConvertToRadians(fFOVAngle * 0.5f)));	// d = 1 / tan(세타)
 }
 
-void CCamera::GeneratePerspectiveProjectionMatrix(float fNearPlaneDistance, float fFarPlaneDistance, float fFOVAngle)
+void CCamera::GeneratePerspectiveProjectionMatrix(float fNearPlaneDistance, float fFarPlaneDistance)
 {
-	float fAspectRatio = (float(m_Viewport.GetnWidth()) / float(m_Viewport.GetnHeight()));
-
 	//투영 변환 행렬 생성
-	XMStoreFloat4x4(&m_xmf4x4PerspectiveProject, XMMatrixPerspectiveFovLH(XMConvertToRadians(fFOVAngle), fAspectRatio, fNearPlaneDistance, fFarPlaneDistance));
+	XMStoreFloat4x4(&m_xmf4x4PerspectiveProject, XMMatrixPerspectiveFovLH(XMConvertToRadians(m_fFOVAngle), m_fAspectRatio, fNearPlaneDistance, fFarPlaneDistance));
 }
 
 void CCamera::Move(XMFLOAT3& xmf3Shift)

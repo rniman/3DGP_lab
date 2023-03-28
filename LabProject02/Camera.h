@@ -53,7 +53,7 @@ public:
 	void SetFOVAngle(float fFOVAngle);
 
 	//투영 행렬 생성
-	void GeneratePerspectiveProjectionMatrix(float fNearPlaneDistance, float fFarPlaneDistance, float fFOVAngle);
+	void GeneratePerspectiveProjectionMatrix(float fNearPlaneDistance, float fFarPlaneDistance);
 
 	void Move(XMFLOAT3& xmf3Shift);
 	void Move(float x, float y, float z);

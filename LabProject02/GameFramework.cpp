@@ -76,8 +76,9 @@ void CGameFramework::BuildObjects()
 	// 카메라 생성
 	CCamera* pCamera = new CCamera();
 	pCamera->SetViewport(0, 0, FRAMEBUFFER_WIDTH, FRAMEBUFFER_HEIGHT);
-	pCamera->GeneratePerspectiveProjectionMatrix(1.01f, 500.0f, 60.0f);
 	pCamera->SetFOVAngle(60.0f);
+	pCamera->GeneratePerspectiveProjectionMatrix(1.01f, 500.0f);
+	
 
 	// 비행기 매쉬 생성
 	CAirplaneMesh* pAirplaneMesh = new CAirplaneMesh(6.0f, 6.0f, 1.0f);
