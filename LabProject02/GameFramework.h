@@ -35,7 +35,7 @@ public:
 	void AnimateObjects();
 	void FrameAdvance();
 
-	void SetActive(bool bActive) { m_bActive = bActive; }
+	//void SetActive(bool bActive);
 
 private:
 	HINSTANCE m_hInstance{ nullptr };

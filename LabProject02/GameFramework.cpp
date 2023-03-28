@@ -276,4 +276,9 @@ void CGameFramework::FrameAdvance()
 	::SetWindowText(m_hWnd, m_pszFrameRate);
 }
 
+//void CGameFramework::SetActive(bool bActive)
+//{
+//	m_bActive = bActive; 
+//}
+
 
