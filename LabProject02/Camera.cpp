@@ -175,7 +175,7 @@ void CCamera::Update(XMFLOAT3& xmf3NewPosition, XMFLOAT3& xmf3LookAt, XMFLOAT3& 
 	xmvDirection = XMVector3Normalize(xmvDirection);	//방향 정규화
 
 	// 시간 지연 크기 -> 커지면 마우스 회전시 화면이 쫒아가는 속도가 빨라진다.
-	float fTimeLagScale = fTimeElapsed * 10.0f; // 0.016 -> 0.08
+	float fTimeLagScale = fTimeElapsed * 4.0f; // 0.016 -> 0.08
 	float fDistance = fLength * fTimeLagScale; // fDis < fLen
 	if (fDistance > fLength)	// 시간 지연이 1보다 크면 지연따위 없다. 약 60이상을 곱해야한다.
 	{
@@ -187,7 +187,6 @@ void CCamera::Update(XMFLOAT3& xmf3NewPosition, XMFLOAT3& xmf3LookAt, XMFLOAT3& 
 	}
 	if (fDistance > 0)
 	{
-		fDistance = fLength * 0.01f;
 		XMStoreFloat3(&m_xmf3Position, XMVectorAdd(xmvPosition, XMVectorScale(xmvDirection, fDistance)));
 		SetLookAt(xmf3LookAt, xmf3Up);
 	}
