@@ -197,6 +197,8 @@ void CGameFramework::ProcessInput()
 	if (GetKeyboardState(pKeyBuffer))	// 키보드 입력 처리
 	{
 		DWORD dwDirection = 0;
+		//가상 키코드 비트마스크
+		//0xF0(240)을 쓰는이유 가상 키코드 8비트중 상위 4비트만이 눌렸는지를 판단하기 때문에
 		if (pKeyBuffer[VK_UP] & 0xF0) dwDirection |= DIR_FORWARD;
 		if (pKeyBuffer[VK_DOWN] & 0xF0) dwDirection |= DIR_BACKWARD;
 		if (pKeyBuffer[VK_LEFT] & 0xF0) dwDirection |= DIR_LEFT;
