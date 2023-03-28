@@ -82,11 +82,11 @@ void CPlayer::Move(DWORD dwDirection, float fDistance)
 
 void CPlayer::Move(XMFLOAT3& xmf3Shift, bool bUpdateVelocity)
 {
-	if (bUpdateVelocity)
+	if (bUpdateVelocity)//속도를 이용한 이동
 	{
 		XMStoreFloat3(&m_xmf3Velocity, XMVectorAdd(XMLoadFloat3(&m_xmf3Velocity), XMLoadFloat3(&xmf3Shift)));
 	}
-	else //이동 안함
+	else //고정 이동
 	{
 		XMStoreFloat3(&m_xmf3Position, XMVectorAdd(XMLoadFloat3(&m_xmf3Position), XMLoadFloat3(&xmf3Shift)));
 		m_pCamera->Move(xmf3Shift);
@@ -154,7 +154,7 @@ void CPlayer::LookAt(XMFLOAT3& xmf3LookAt, XMFLOAT3& xmf3Up)
 
 void CPlayer::Update(float fTimeElapsed)
 {
-	//이동
+	//속도 이동
 	Move(m_xmf3Velocity, false);
 
 	//회전 행렬
